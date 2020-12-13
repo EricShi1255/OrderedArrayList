@@ -1,7 +1,6 @@
 import java.util.ArrayList;
 public class NoNullArrayList<T> extends ArrayList<T> {
-    
-    //constructor; no arguments
+
     public NoNullArrayList() {
         super();
     }
@@ -31,8 +30,7 @@ public class NoNullArrayList<T> extends ArrayList<T> {
             throw new IllegalArgumentException("Null values cannot be added");
         }
         else {
-        super.set(index, value);
-        return value;
+        return super.set(index, value);
         }
     }
 }
