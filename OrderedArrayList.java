@@ -8,10 +8,12 @@ public class OrderedArrayList<T extends Comparable<T>> extends NoNullArrayList<T
     //First find the index where the new element should be added
     //add() the new element into that position.
     public boolean add(T element) {
+        
         if (size() == 0) {
             super.add(element);
             return true;
         }
+        
         if (element == null) {
             throw new IllegalArgumentException("Null values cannot be added");
         }
@@ -36,7 +38,10 @@ public class OrderedArrayList<T extends Comparable<T>> extends NoNullArrayList<T
     }
     
     public T set (int index, T element) {
-        T temp = super.get(index);
+        if (element == null) {
+            throw new IllegalArgumentException("Element cannot be null");
+        }
+        T temp = get(index);
         super.remove(index);
         add(element);
         return temp;
